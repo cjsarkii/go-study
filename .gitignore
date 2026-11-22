@@ -1,0 +1,14 @@
+# 컴파일된 바이너리 파일 제외
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*-linux
+
+# 테스트·커버리지 결과물
+*.test
+*.out
+
+# IDE 설정 (필요 시)
+.vscode/

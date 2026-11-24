@@ -26,6 +26,13 @@ func main() {
 	// 두번째 방식에서 연장 - 필요한 것만 받아서 사용하기
 	onlyMsg, _ := classifyPort(9999)
 	fmt.Println(onlyMsg)
+
+	msg, result = classifyPort(10101)
+	if result {
+		fmt.Println("정상 결과:", msg)
+	} else {
+		fmt.Println("경고:", msg)
+	}
 }
 
 func classifyPort(port int) (string, bool) {
@@ -34,7 +41,7 @@ func classifyPort(port int) (string, bool) {
 		return "유효하지 않은 포트", false
 	} else if port <= 1023 {
 		return "Well-known 포트", true
-	} else {
-		return "등록/동적 포트", true
 	}
+	return "등록/동적 포트", true
+
 }

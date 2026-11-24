@@ -1,3 +1,5 @@
+//Go 환경 세팅 및 시스템 정보 출력 실습
+
 package main
 
 import (

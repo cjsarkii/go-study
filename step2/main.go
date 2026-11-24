@@ -1,3 +1,5 @@
+//fmt.Scan 입력과 모듈화, if 조건문 실습
+
 package main
 
 import "fmt"

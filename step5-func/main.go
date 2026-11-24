@@ -3,6 +3,12 @@ package main
 import "fmt"
 
 func main() {
+	port := [3]int{22, 80, 443}
+	fmt.Printf("port[0] address: [%p], port: %v\n", &port[0], port)
+
+	tryModify(port) // c처럼 주소값을 넘기는게 아니라 깊은복사가 이루어짐
+	fmt.Printf("port[0] address: [%p], port: %v\n", &port[0], port)
+
 	// 첫번째 방식 - 둘다 받기
 	// 근데 Go는 받아놓고 안쓰면 뭐라고 하니까 어딘가 한번은 써야함
 	msg, result := classifyPort(8080)

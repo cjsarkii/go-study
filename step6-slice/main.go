@@ -29,7 +29,10 @@ func main() {
 
 	nums := []int{10, 20, 30}
 
-	fmt.Printf("Addr >>>\nnums(slice자체): [%p]\nhdr(slice내부 헤더): [%p]\nindex[0]: [%p]\n", nums, &nums, &nums[0])
+	// 헤더 == 슬라이스 변수 그 자체, 내부 멤버변수로서 Data가 갖는건 단지 힙에 생성된 공간의 주소값이다.
+	// 따라서 헤더의 0번 index값은 사실상 힙영역에 만들어진 공간의 주소값과 동일하다고 할수있다.
+	// nums라는 변수 자체의 주소값이 &nums -> C에서 포인터와 같은 개념
+	fmt.Printf("Addr >>>\nnums(slice자체): [%p]\nhdr(slice내부 헤더): [%p]\nindex[0]: [%p]\n", &nums, nums, &nums[0])
 
 	fmt.Println("\n======================== 실습 3 ========================")
 	buf := make([]int, 3, 5)
@@ -45,6 +48,6 @@ func main() {
 	fmt.Println(buf)
 
 	// 쓰겠다고 선언하지않은 곳에 값을 대입하고 출력 -> panic에러
-	buf[3] = 3306
-	fmt.Println(buf)
+	// buf[3] = 3306
+	// fmt.Println(buf)
 }

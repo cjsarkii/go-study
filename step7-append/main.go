@@ -42,4 +42,8 @@ func main() {
 
 	fmt.Printf("good -> value: %v, len: [%d], cap: [%d], addr: [%p]\n", good, len(good), cap(good), good)
 	fmt.Printf("trap -> value: %v, len: [%d], cap: [%d], addr: [%p]\n", trap, len(trap), cap(trap), trap)
+
+	good = append(good, trap...)
+	fmt.Printf("good -> value: %v, len: [%d], cap: [%d], addr: [%p]\n", good, len(good), cap(good), good)
+	fmt.Printf("trap -> value: %v, len: [%d], cap: [%d], addr: [%p]\n", trap, len(trap), cap(trap), trap)
 }

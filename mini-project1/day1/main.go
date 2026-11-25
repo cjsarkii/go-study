@@ -28,24 +28,29 @@ func main() {
 	_ = inventory
 	_ = logs
 
-	var input string
+	var inputOption string
+	var inputName string
+	var inputCount int
+	restockResult := false
 
 	for {
 		fmt.Print("원하는 작업을 입력하세요(exit입력시 종료): ")
-		fmt.Scan(&input)
+		fmt.Scan(&inputOption)
 
-		if input == command[6] {
+		if inputOption == command[6] {
 			fmt.Println("프로그램을 종료합니다.")
 			break
 		}
 
-		switch input {
+		switch inputOption {
 		case command[0]:
 			fmt.Print("[조회] >>> 물품의 이름을 입력해주세요: ")
-			fmt.Scan(&input)
-			checkStock(inventory, input)
+			fmt.Scan(&inputName)
+			checkStock(inventory, inputName)
 		case command[1]:
-
+			fmt.Print("[입고/신규등록] >>> 물품의 이름과 수량을 입력해주세요: ")
+			fmt.Scan(&inputName, &inputCount)
+			restockResult = restock(inventory, inputName, inputCount)
 		case command[2]:
 
 		case command[3]:
@@ -59,8 +64,13 @@ func main() {
 }
 
 func checkStock(inv map[string]int, item string) {
-
+	if count, ok := inv[item]; ok {
+		fmt.Printf("[%s]개수: %d\n", item, count)
+		return
+	}
+	fmt.Println("제품이 없습니다.\n")
 }
+
 func restock(inv map[string]int, item string, qty int) bool {
 
 }
